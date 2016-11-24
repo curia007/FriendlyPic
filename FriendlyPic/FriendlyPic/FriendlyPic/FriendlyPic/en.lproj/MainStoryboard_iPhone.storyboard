@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13D28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9DA-At-yqa">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="J6R-lp-1X1">
+            <objects>
+                <viewController id="9DA-At-yqa" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qec-Qi-59P"/>
+                        <viewControllerLayoutGuide type="bottom" id="EcM-jf-8Ao"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GOd-fL-GCk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbg-Jk-rLu" userLabel="Preview">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <subviews>
+                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zi3-Om-gT9">
+                                        <rect key="frame" x="18" y="471" width="284" height="34"/>
+                                        <connections>
+                                            <action selector="sliderValueChangedAction:" destination="9DA-At-yqa" eventType="valueChanged" id="AAH-HP-IPz"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbN-Uw-juX">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="SwapIcon.png" id="mkb-H8-8KM">
+                                        <connections>
+                                            <action selector="switchCameras:" destination="9DA-At-yqa" id="veM-Y5-kdM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7H7-M6-1o1"/>
+                                    <barButtonItem title="Width" id="IXN-pY-12v">
+                                        <connections>
+                                            <action selector="widthAction:" destination="9DA-At-yqa" id="O6u-qa-WLl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="D1I-7A-ezm"/>
+                                    <barButtonItem systemItem="camera" id="usr-UP-TYx">
+                                        <connections>
+                                            <action selector="takePicture:" destination="9DA-At-yqa" id="Bbx-9E-59d"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vd1-Ns-JAw"/>
+                                    <barButtonItem systemItem="refresh" id="wNF-Nk-wRE">
+                                        <connections>
+                                            <action selector="clearAction:" destination="9DA-At-yqa" id="e2D-G5-1XN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5tr-dn-f3D"/>
+                                    <barButtonItem systemItem="action" id="QWw-78-hKf"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jbg-Jk-rLu" firstAttribute="bottom" secondItem="MbN-Uw-juX" secondAttribute="top" id="4M6-oD-Tax"/>
+                            <constraint firstItem="jbg-Jk-rLu" firstAttribute="top" secondItem="GOd-fL-GCk" secondAttribute="top" id="QYr-eg-6Fg"/>
+                            <constraint firstItem="MbN-Uw-juX" firstAttribute="trailing" secondItem="jbg-Jk-rLu" secondAttribute="trailing" id="ZwT-o3-kCr"/>
+                            <constraint firstItem="jbg-Jk-rLu" firstAttribute="leading" secondItem="GOd-fL-GCk" secondAttribute="leading" id="dkR-3V-9BT"/>
+                            <constraint firstAttribute="trailing" secondItem="jbg-Jk-rLu" secondAttribute="trailing" id="ngf-0U-YPn"/>
+                            <constraint firstItem="jbg-Jk-rLu" firstAttribute="leading" secondItem="MbN-Uw-juX" secondAttribute="leading" id="q98-jr-yx5"/>
+                            <constraint firstAttribute="bottom" secondItem="MbN-Uw-juX" secondAttribute="bottom" id="xds-bD-hiS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearToolbarItem" destination="wNF-Nk-wRE" id="DGg-lE-keb"/>
+                        <outlet property="optionsButton" destination="QWw-78-hKf" id="gwC-AJ-krO"/>
+                        <outlet property="previewView" destination="jbg-Jk-rLu" id="9jg-Tn-Wo4"/>
+                        <outlet property="switchCamera" destination="mkb-H8-8KM" id="Hlj-FS-ju9"/>
+                        <outlet property="toolbar" destination="MbN-Uw-juX" id="jq8-Fw-wLH"/>
+                        <outlet property="widthBarButtonItem" destination="IXN-pY-12v" id="DST-oo-yH3"/>
+                        <outlet property="widthSlider" destination="Zi3-Om-gT9" id="VL0-yI-Du4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2x-uk-0v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Zfg-Vq-Alx"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="426"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="zxu-fa-YKY">
+            <objects>
+                <viewController id="svE-WD-Oqh" customClass="OptionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qCQ-tL-IBg"/>
+                        <viewControllerLayoutGuide type="bottom" id="4CO-O9-4fc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" horizontalHuggingPriority="846" verticalHuggingPriority="846" horizontalCompressionResistancePriority="205" id="hlG-Yx-TNK" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="350" verticalHuggingPriority="350" translatesAutoresizingMaskIntoConstraints="NO" id="lAC-bG-BEp" userLabel="Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <userGuides>
+                                    <userLayoutGuide location="213" affinity="minY"/>
+                                    <userLayoutGuide location="149" affinity="minX"/>
+                                </userGuides>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVv-gQ-z8f" userLabel="Yellow Button">
+                                        <rect key="frame" x="26" y="231" width="80" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="uTL-DF-N9r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="yellow_marker-pen-512.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yellowLineSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="m3G-00-Ut6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3g-Mx-dgK" userLabel="Green Button">
+                                        <rect key="frame" x="214" y="122" width="80" height="80"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="green_marker-pen-512.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="greenLineSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="9y8-N9-EqA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39f-0c-w0t" userLabel="Blue Button">
+                                        <rect key="frame" x="26" y="122" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="nj7-7b-9eT"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="s53-4f-r1z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="blue_marker-pen-512.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="blueLineSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="oIL-P0-81f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzl-Da-rdo" userLabel="Facebook">
+                                        <rect key="frame" x="224" y="54" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="QzQ-d8-Odk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Facebook Button" image="f_logo.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="AL8-9m-b7F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8a-JY-p3T" userLabel="Twitter">
+                                        <rect key="frame" x="36" y="54" width="60" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="twitter-bird-white-on-blue.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="twitterSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="bPz-zu-dxf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5B-M9-wHq" userLabel="Red Button">
+                                        <rect key="frame" x="214" y="231" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="DRW-AF-2hm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Button" image="red_marker-pen-512.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="redLineSelected:" destination="svE-WD-Oqh" eventType="touchUpInside" id="G5I-cG-2Qc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-A7-Lj0">
+                                        <rect key="frame" x="130" y="53" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="nTf-Ig-nrk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="SnapIcon.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveAction:" destination="svE-WD-Oqh" eventType="touchUpInside" id="Xkb-iy-GjM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.71764705880000002" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Y5B-M9-wHq" firstAttribute="top" secondItem="TVv-gQ-z8f" secondAttribute="top" id="06n-j2-6eD"/>
+                                    <constraint firstItem="hSW-A7-Lj0" firstAttribute="top" secondItem="lAC-bG-BEp" secondAttribute="top" constant="53" id="1lS-t6-fnr"/>
+                                    <constraint firstItem="TVv-gQ-z8f" firstAttribute="leading" secondItem="39f-0c-w0t" secondAttribute="leading" id="5rW-e8-XPf"/>
+                                    <constraint firstItem="y8a-JY-p3T" firstAttribute="leading" relation="lessThanOrEqual" secondItem="rzl-Da-rdo" secondAttribute="trailing" constant="83" id="9Gs-iM-56G"/>
+                                    <constraint firstItem="y8a-JY-p3T" firstAttribute="centerX" secondItem="39f-0c-w0t" secondAttribute="centerX" id="JRs-Bp-y3h"/>
+                                    <constraint firstItem="y8a-JY-p3T" firstAttribute="top" secondItem="lAC-bG-BEp" secondAttribute="top" constant="54" id="Mbn-Wb-R75"/>
+                                    <constraint firstItem="X3g-Mx-dgK" firstAttribute="top" secondItem="rzl-Da-rdo" secondAttribute="bottom" constant="8" symbolic="YES" id="T4t-NH-cCD"/>
+                                    <constraint firstAttribute="bottom" secondItem="rzl-Da-rdo" secondAttribute="bottom" priority="1" constant="178" id="X4Q-x3-d8j"/>
+                                    <constraint firstAttribute="trailing" secondItem="X3g-Mx-dgK" secondAttribute="trailing" constant="26" id="ZHg-31-d2M"/>
+                                    <constraint firstItem="X3g-Mx-dgK" firstAttribute="top" secondItem="39f-0c-w0t" secondAttribute="top" id="abS-CE-cOE"/>
+                                    <constraint firstItem="rzl-Da-rdo" firstAttribute="centerX" secondItem="X3g-Mx-dgK" secondAttribute="centerX" id="dR7-3X-27s"/>
+                                    <constraint firstItem="39f-0c-w0t" firstAttribute="leading" secondItem="lAC-bG-BEp" secondAttribute="leading" constant="26" id="eOh-53-5Yj"/>
+                                    <constraint firstItem="TVv-gQ-z8f" firstAttribute="top" secondItem="lAC-bG-BEp" secondAttribute="top" constant="231" id="eZ9-69-dBT"/>
+                                    <constraint firstItem="y8a-JY-p3T" firstAttribute="top" secondItem="rzl-Da-rdo" secondAttribute="top" id="imU-MI-QQI"/>
+                                    <constraint firstItem="X3g-Mx-dgK" firstAttribute="leading" secondItem="Y5B-M9-wHq" secondAttribute="leading" id="mKQ-dD-gnR"/>
+                                    <constraint firstItem="Y5B-M9-wHq" firstAttribute="trailing" secondItem="X3g-Mx-dgK" secondAttribute="trailing" id="mLe-d1-GzT"/>
+                                    <constraint firstItem="X3g-Mx-dgK" firstAttribute="bottom" secondItem="39f-0c-w0t" secondAttribute="bottom" id="n5J-cZ-zvB"/>
+                                    <constraint firstItem="rzl-Da-rdo" firstAttribute="bottom" secondItem="y8a-JY-p3T" secondAttribute="bottom" priority="500" id="odC-Iu-lh7"/>
+                                    <constraint firstItem="Y5B-M9-wHq" firstAttribute="bottom" secondItem="TVv-gQ-z8f" secondAttribute="bottom" id="qjg-RK-NKQ"/>
+                                    <constraint firstItem="hSW-A7-Lj0" firstAttribute="centerX" secondItem="lAC-bG-BEp" secondAttribute="centerX" id="tbC-QD-e41"/>
+                                    <constraint firstItem="39f-0c-w0t" firstAttribute="trailing" secondItem="TVv-gQ-z8f" secondAttribute="trailing" id="wQc-RG-252"/>
+                                    <constraint firstItem="rzl-Da-rdo" firstAttribute="top" secondItem="y8a-JY-p3T" secondAttribute="top" priority="500" id="x4M-Nd-1ng"/>
+                                    <constraint firstItem="39f-0c-w0t" firstAttribute="top" secondItem="y8a-JY-p3T" secondAttribute="bottom" constant="8" symbolic="YES" id="yMl-vM-z3B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lAC-bG-BEp" firstAttribute="bottom" secondItem="hlG-Yx-TNK" secondAttribute="bottom" id="50j-yb-g6T"/>
+                            <constraint firstItem="lAC-bG-BEp" firstAttribute="trailing" secondItem="hlG-Yx-TNK" secondAttribute="trailing" id="5qe-jV-49c"/>
+                            <constraint firstItem="lAC-bG-BEp" firstAttribute="top" secondItem="hlG-Yx-TNK" secondAttribute="top" id="DiV-4W-eoN"/>
+                            <constraint firstItem="lAC-bG-BEp" firstAttribute="leading" secondItem="hlG-Yx-TNK" secondAttribute="leading" id="sdS-VB-din"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="blueButton" destination="39f-0c-w0t" id="i9W-HG-yrp"/>
+                        <outlet property="facebookButton" destination="rzl-Da-rdo" id="vwH-55-Knh"/>
+                        <outlet property="greenButton" destination="X3g-Mx-dgK" id="2cX-io-12v"/>
+                        <outlet property="twitterButton" destination="y8a-JY-p3T" id="y4L-6U-uuV"/>
+                        <outlet property="yellowButton" destination="TVv-gQ-z8f" id="bi0-nJ-1f4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnq-PT-uVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="402" y="241"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SnapIcon.png" width="32" height="20"/>
+        <image name="SwapIcon.png" width="32" height="20"/>
+        <image name="blue_marker-pen-512.png" width="512" height="512"/>
+        <image name="f_logo.png" width="140" height="140"/>
+        <image name="green_marker-pen-512.png" width="512" height="512"/>
+        <image name="red_marker-pen-512.png" width="512" height="512"/>
+        <image name="twitter-bird-white-on-blue.png" width="300" height="300"/>
+        <image name="yellow_marker-pen-512.png" width="512" height="512"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,30 @@
+//
+// Prefix header for all source files of the 'FriendlyPicBasic' target in the 'FriendlyPicBasic' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Accounts/Accounts.h>
+    #import <Social/Social.h>
+#endif
+
+extern NSString * const OptionKey;
+
+extern NSString * const BluePenOption;
+extern NSString * const GreenPenOption;
+extern NSString * const YellowPenOption;
+extern NSString * const RedPenOption;
+
+extern NSString * const FacebookOption;
+extern NSString * const TwitterOption;
+extern NSString * const SaveOption;
+extern NSString * const MailOption;
+
+extern NSString * const kfrontCamera;
